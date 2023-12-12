@@ -1,0 +1,19 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      target: build
+    # Signal expected by Flask for a graceful shutdown.
+    stop_signal: SIGINT
+    ports:
+      - 8080
+    depends_on:
+      - redis
+    env_file:
+      - .env
+
+  redis:
+    image: redis:7.2.3-alpine
+    volumes:
+      - ./db-data:/data
