@@ -1,0 +1,23 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      target: development
+    # Signal expected by Flask for a graceful shutdown.
+    stop_signal: SIGINT
+    ports: 
+      - 8080
+    volumes:
+      # Allows docker commands from a container to be executed by a deamon running on a host.
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Maps all files in the current folder on the host to be visible inside a container.
+      - ./:/app
+    depends_on: 
+      - redis
+    env_file: .env-dev
+
+  redis:
+    image: redis:7.2.3-alpine
+    volumes: 
+      - ./db-data:/data

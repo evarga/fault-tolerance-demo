@@ -3,7 +3,7 @@ services:
   web:
     build:
       context: .
-      target: build
+      target: production
     # Signal expected by Flask for a graceful shutdown.
     stop_signal: SIGINT
     ports:
