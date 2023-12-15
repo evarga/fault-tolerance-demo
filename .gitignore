@@ -165,3 +165,7 @@ db-data/*.rdb
 
 # Mac OS X
 .DS_Store
+
+# IDEs & Tools
+.idea
+qodana.sarif.json
