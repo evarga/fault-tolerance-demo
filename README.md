@@ -12,6 +12,11 @@ This project, whose starting point was the [flask-redis](https://github.com/dock
 - How to utilize [GitHub Dependabot](https://github.com/skills/secure-repository-supply-chain) to receive notifications and pull requests regarding version updates and vulnerabilities. 
 - How to create an effective visualization of actions inside a terminal window using the [Terminalizer](https://www.terminalizer.com) tool.
 
+# Setup
+You must create the `.env` file (inside the root project folder) having the following structure:
+```
+NAME=<insert any text here>
+```
 # Demostration of a Fault-Tolerant Behavior
 You should run the commands below from the root folder of this project unless noted otherwise.
 
