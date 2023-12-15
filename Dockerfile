@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM python:alpine3.19 AS production
+FROM --platform=$BUILDPLATFORM python:alpine3.19
 
 WORKDIR /app
 COPY app.py requirements.txt ./
@@ -17,15 +17,3 @@ USER runner
 
 ENTRYPOINT ["python3"]
 CMD ["app.py"]
-
-# The rest of this file configures the Docker Dev Environments facility.
-FROM production as development
-
-USER root
-
-RUN <<EOF
-# We don't need an overlaid copy of app.py, so remove it.
-rm app.py
-apk update
-apk add git docker docker-compose bash
-EOF
