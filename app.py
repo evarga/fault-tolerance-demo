@@ -4,7 +4,6 @@ from flask import Flask
 from redis import Redis
 from pybreaker import CircuitBreaker, CircuitBreakerError
 
-
 db = Redis(host="redis", db=0, socket_timeout=2, protocol=3)
 db_breaker = CircuitBreaker(fail_max=1, reset_timeout=5)
 app = Flask(__name__)
@@ -28,22 +27,22 @@ def hello():
         visits = "<em>The counter is temporarily disabled!</em>"
 
     response = \
-    """
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8"/>
-            <title>Fault Tolerance Demo</title>
-        </head>
-        <body>
-            <h1>Hello {name}!</h1>
-            <strong>Hostname:</strong> {hostname}<br/>
-            <strong>Visits:</strong> {visits}
-        </body>
-    </html>
-    """
+        """
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="utf-8"/>
+                <title>Fault Tolerance Demo</title>
+            </head>
+            <body>
+                <h1>Hello {name}!</h1>
+                <strong>Hostname:</strong> {hostname}<br/>
+                <strong>Visits:</strong> {visits}
+            </body>
+        </html>
+        """
     return response.format(name=os.getenv("NAME"), hostname=socket.gethostname(), visits=visits)
 
 
 if __name__ == "__main__":
-    app.run(host = '0.0.0.0', port = 8080)
+    app.run(host='0.0.0.0', port=8080)
