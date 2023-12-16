@@ -18,7 +18,7 @@ You must create the `.env` file (inside the root project folder) having the foll
 NAME=<insert any text here>
 ```
 # Demostration of a Fault-Tolerant Behavior
-You should run the commands below from the root folder of this project unless noted otherwise.
+You should run the commands below from the root folder of this project.
 
 | Step                             | Description |
 |----------------------------------| ----------- |
@@ -27,7 +27,7 @@ You should run the commands below from the root folder of this project unless no
 | `docker compose exec web id`     | Show that the web service is running under a non-root user. |
 | `docker compose logs`            | Show generated logs inside running containers <br/>(option `-f` may be used to follow the logs). |
 | `docker compose port web 8080`   | Display the port on host that is mapped to port 8080 inside a web container. |
-| `curl- localhost:"port on host"` | Execute couple of times this command on host to see the application in action. |
+| `curl localhost:"port on host"`  | Execute couple of times this command on host to see the application in action. |
 | `docker compose pause redis`     | Pause the database to simulate a connectivity problem. |
 | `curl localhost:"port on host"`  | Execute couple of times this command on host to see fault-tolerance in action. <br/>Observe that the first attempt takes a bit longer to run, <br/>since the circuit breaker waits for a timeout to happen on a socket. <br/>Subsequent requests immediately fail. <br/>Occasionally the circuit will try to close again and that also demands waiting for a timeout. |
 | `docker compose unpause redis`   | Unpause the database to simulate that everything is OK again. |
