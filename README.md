@@ -1,10 +1,3 @@
-# Table of Contents
-- [Introduction](#introduction)
-- [Setup](#setup)
-- [Demostration of a Fault-Tolerant Behavior](#demostration-of-a-fault-tolerant-behavior)
-  - [Monitoring Redis keys](#monitoring-redis-keys)
-- [Conclusion](#conclusion)
-
 # Introduction
 This project, whose starting point was the [flask-redis](https://github.com/docker/awesome-compose/tree/master/flask-redis) repository, is used as an educational material to teach and demonstrate in practice the following topics:
 
