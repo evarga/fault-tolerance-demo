@@ -1,3 +1,3 @@
-Flask==3.0.3
+Flask==3.1.0
 Redis==5.2.0
 pybreaker==1.2.0
